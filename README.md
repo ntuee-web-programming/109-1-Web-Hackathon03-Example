@@ -48,6 +48,8 @@
     * 在 server/server.js 補上可以連到 Mongo 的程式碼
     * 連結網址如下，請將網址放在 mongoURL.js 以利批改的測試，**若沒有做到這一點而造成助教在批改上的困難，會扣10%的成績**
     `mongodb+srv://Peter:hackathon3@cluster1.clsel.gcp.mongodb.net/hackathon3?retryWrites=true&w=majority`
+    
+    * dboption 可用可不用，如要用請放在第二個參數
 
 2. 從 MongoDB 拿到 questions (10%)
 
@@ -67,10 +69,12 @@
     ```
     * questionID 代表題號，question 代表問題內容，options 代表該問題所包含的選項內容
     
+    **實作 function 的時候請自行判斷是否要用參數以及 async/await**
+    **沒有硬性規定 state 變數名稱要取什麼，同學們可自行改掉或沿用**
+    
     (1) 請實作 src/Question.js (or src/Question_hook.js) 裡面的 getContents()
         使用 axios get 取得 questions
         API route 為 `'/getContents'`
-        **沒有硬性規定 state 變數名稱要取什麼，同學們可自行改掉或沿用**
 
     (2) 請在 `<div className="question-box-inner"></div>` 內填入現在呈現的是第幾號題
         舉例來說，如果總共有四題，然後現在出現的是第一題，請顯示：Question 1 of 4
