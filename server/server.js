@@ -3,6 +3,8 @@ import cors from 'cors'
 import routes from './routes'
 import mongoose from 'mongoose'
 
+import mongoURL from '../mongoURL'
+
 const app = express()
 
 // init middleware
@@ -24,7 +26,7 @@ const dboptions = {
   useUnifiedTopology: true,
   poolSize: 10
 }
-mongoose.connect('mongodb+srv://Peter:hackathon3@cluster1.clsel.gcp.mongodb.net/hackathon3?retryWrites=true&w=majority', dboptions)
+mongoose.connect(mongoURL, dboptions)
 .then(res => {
   console.log('mongo db connection created')
 })

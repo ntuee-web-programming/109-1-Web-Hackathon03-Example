@@ -1,0 +1,1 @@
+module.exports = 'mongodb+srv://Peter:hackathon3@cluster1.clsel.gcp.mongodb.net/hackathon3?retryWrites=true&w=majority'
