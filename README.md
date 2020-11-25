@@ -122,6 +122,9 @@
     * 請隱藏 `<div id="options"></div>`
     * 請隱藏 `<div id="actions">NEXT</div>`
 
+## Demo GIF
+![](https://i.imgur.com/qa8KGAD.gif)
+
 ## Running Tests
 1. 開啟前端 `yarn start`，確保前端有在 `localhost:3000` 運作，並開啟後端 `localhost:3000`，確保前端有在 `localhost:4000` 運作
     
