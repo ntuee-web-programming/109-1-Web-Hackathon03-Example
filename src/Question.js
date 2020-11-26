@@ -31,7 +31,7 @@ class Question extends Component {
   }
 
   choose = (opt) => {
-    let new_ans = this.state.ans
+    let new_ans = [...this.state.ans]
     if (!new_ans[this.state.current_question])
       new_ans = [...new_ans, opt]
     else

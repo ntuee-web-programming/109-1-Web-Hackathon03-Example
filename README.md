@@ -38,6 +38,16 @@
 13. 前端開啟請執行 `yarn start`
 14. 後端請開第二個 terminal / cmd，一樣 `cd 109-1-Web-Hackathon03` 後執行 `yarn server`
 
+## Function 說明
+### Frontend：
+1. getContents()：呼叫後端 API 以取得問答的題目
+2. choose()：按下選項後會選擇該選項
+3. next()：按下 NEXT 按鈕會切換至下一題，如果是最後一題則呼叫後端 API 計算答題的分數
+
+### Backend：
+1. GetContents()：從 MongoDB 拿取題目並回傳給前端
+2. CheckAns()：從 MongoDB 拿取正確答案並計算前端傳來的答案，計算完回傳分數至前端
+
 ## 測試項目
 **考試時提供的題目只是供你們寫出正確的程式碼，批改測試時會換掉 MongoDB 連結，也就是說會是不同的 questions 及選項，因此請記得不要將程式碼寫死**
 
@@ -46,7 +56,7 @@
 1. 連接到 MongoDB (10%)
 
     * 在 server/server.js 補上可以連到 Mongo 的程式碼
-    * 連結網址如下，請將網址放在 mongoURL.js 以利批改的測試，**若沒有做到這一點而造成助教在批改上的困難，會扣10%的成績**
+    * 連結網址如下，請將網址放在 .env 以利批改的測試，**若沒有做到這一點而造成助教在批改上的困難，會扣10%的成績**
     `mongodb+srv://Peter:hackathon3@cluster1.clsel.gcp.mongodb.net/hackathon3?retryWrites=true&w=majority`
     
     * dboption 可用可不用，如要用請放在第二個參數
