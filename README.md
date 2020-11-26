@@ -4,7 +4,7 @@
 
 ## 考前準備
 1. 前往 [Github.com](https://github.com/) 創建新的 repo
-2. Repo 名稱請命名為 "**109-1-Web-Hackathon02**"，同時請設為 private
+2. Repo 名稱請命名為 "**109-1-Web-Hackathon03**"，同時請設為 private
     ![](https://i.imgur.com/f9Emt0Q.png)
    
 3. 把 repo clone 到電腦本地端，打開 terminal / cmd, 執行 `git clone https://github.com/<Your Username>/109-1-Web-Hackathon03.git`
@@ -30,15 +30,25 @@
     ![](https://i.imgur.com/GXI2F1p.png)
 
 10. URL 請填入 `https://github.com/ntuee-webprogramming/109-1-Web-Hackathon03`，然後點擊 Begin Import
-> 若持續出現錯誤以致無法 import，請直接下載題目的 zip 檔，解壓縮後將所有檔案放進你的 repo 資料夾
-> 請注意務必將 .gitignore 放進去 (指令：進入題目的資料夾後 `mv .gitignore ../109-1-Web-Hackathon03`)
+> 若持續出現錯誤以致無法 import，有可能是網路塞車，請稍後再試。
+> 若真的還是不行，請直接下載題目的 zip 檔，解壓縮後將所有檔案放進你的 repo 資料夾，並且確認 .gitignore 有在 repo 資料夾裡面 (如果沒有，可輸入指令：進入題目的資料夾後 `mv .gitignore ../109-1-Web-Hackathon03`)
     
 11. 打開 terminal / cmd 執行 `cd 109-1-Web-Hackathon03`
 12. 執行 `git pull`
-13. 前端開啟請執行 `yarn start`
-14. 後端請開第二個 terminal / cmd，一樣 `cd 109-1-Web-Hackathon03` 後執行 `yarn server`
+13. 後端開啟請執行 `yarn server`
+14. 前端請開第二個 terminal / cmd，一樣 `cd 109-1-Web-Hackathon03` 後執行 `yarn start`
 
 ## Function 說明
+
+這個題目是做一個簡易的答題系統，題目與答案存在後端的 MongoDB，前端在開啟或是 reload 的時候會把題目透過 axios (RESTful APIs) 從後端資料庫取得。
+
+使用者可以透過前端點選答案，並按「next」進入下一題，在全部題目作答完畢之後，後端會比對答案，並計算成績，呈現在螢幕上。
+
+底下是示範影片：
+
+### Demo GIF
+![](https://i.imgur.com/qa8KGAD.gif)
+
 ### Frontend：
 1. getContents()：呼叫後端 API 以取得問答的題目
 2. choose()：按下選項後會選擇該選項
@@ -49,14 +59,14 @@
 2. CheckAns()：從 MongoDB 拿取正確答案並計算前端傳來的答案，計算完回傳分數至前端
 
 ## 測試項目
-**考試時提供的題目只是供你們寫出正確的程式碼，批改測試時會換掉 MongoDB 連結，也就是說會是不同的 questions 及選項，因此請記得不要將程式碼寫死**
+**考試時提供的題目只是供你們寫出正確的程式碼，批改測試時會換掉 MongoDB 連結，也就是說會是不同的 questions 及選項(選項個數也可能會不一樣，但答案都會是單選)，因此請記得不要將程式碼寫死**
 
-**這次提供 class 及 hook 兩個版本的檔案，請同學自行決定要使用哪一個，分別是 Question.js 以及 Question_hook.js，預設是用 class 版本，如果要使用 hook 版本請自行到 App.js 改掉 import 來源**
+**這次提供 class 及 hook 兩個版本的檔案，請同學自行決定要使用哪一個，分別是 Question.js 以及 Question_hook.js，預設是用 class 版本，如果要使用 hook 版本請自行到 src/App.js 改掉 import 來源**
 
 1. 連接到 MongoDB (10%)
 
     * 在 server/server.js 補上可以連到 Mongo 的程式碼
-    * 連結網址如下，請將網址放在 .env 以利批改的測試，**若沒有做到這一點而造成助教在批改上的困難，會扣10%的成績**
+    * Hackathon 時使用的 MongoDB 的連結網址如下，請將此網址放在 .env 裏頭，而不是寫死在程式裡，以免我們在實際用別的 DB(題目) 測試時造成錯誤。 **若沒有做到這一點而造成助教在批改上的困難，會扣 10% 的成績**
     `mongodb+srv://Peter:hackathon3@cluster1.clsel.gcp.mongodb.net/hackathon3?retryWrites=true&w=majority`
     
     * dboption 可用可不用，如要用請放在第二個參數
@@ -64,7 +74,7 @@
 2. 從 MongoDB 拿到 questions (10%)
 
     * 請完成 server/routes/question.js 裡的 GetContents()，從 MongoDB 中抓出所有 questions
-    * questions model 已經 import 好了
+    * questions model 已經寫好也 import 好了 (server/models/question.js)，你不用更改，也請勿更改
     * 回傳的時候請務必遵照以下格式：
       * 順利從 MongoDB 裡面拿到資料的話，請將回傳的 statusCode 設為 200，並將 `message: 'success', contents: <data fetch from MongoDB>` 包裝成物件回傳
       * 若拿到的資料是空陣列或是發生任何錯誤，請將回傳的 statusCode 設為 403，並將 `message: 'error', contents: []` 包裝成物件回傳
@@ -79,7 +89,7 @@
     ```
     * questionID 代表題號，question 代表問題內容，options 代表該問題所包含的選項內容
     
-    **實作 function 的時候請自行判斷是否要用參數以及 async/await**
+    **實作 function 的時候請自行判斷是否要用參數以及使用 async/await**
     **沒有硬性規定 state 變數名稱要取什麼，同學們可自行改掉或沿用**
     
     (1) 請實作 src/Question.js (or src/Question_hook.js) 裡面的 getContents()
@@ -130,17 +140,13 @@
       * 順利從 MongoDB 裡面拿到資料的話，請將回傳的 statusCode 設為 200，並將 `message: 'success', score: <correct score after calculation>` 包裝成物件回傳
       * 若拿到的資料是空陣列或是發生任何錯誤，請將回傳的 statusCode 設為 403，並將 `message: 'error', score: -1` 包裝成物件回傳
 
-6. 選題結束後，將分數回傳至前端並顯示 (20%)
+6. 答題結束後，將分數回傳至前端並顯示 (20%)
 
-    * 請將後端回傳的分數顯示在 `<div id="question-title"></div>` 裡面，假設四題對了三題，則應該顯示：Your Score : 3 / 4 (蓋掉原本最後一題的題目內容)
-    * 請隱藏 `<div id="options"></div>`
-    * 請隱藏 `<div id="actions">NEXT</div>`
-
-## Demo GIF
-![](https://i.imgur.com/qa8KGAD.gif)
+    * 請將後端回傳的分數顯示在 `<div id="question-title"></div>` 裡面，假設四題對了三題，則應該顯示：Your Score : 3 / 4 (顯示位置為蓋掉原本最後一題的題目內容，同時也請隱藏 `<div id="options"></div>` 以及 `<div id="actions">NEXT</div>`
 
 ## Running Tests
-1. 開啟前端 `yarn start`，確保前端有在 `localhost:3000` 運作，並開啟後端 `localhost:3000`，確保前端有在 `localhost:4000` 運作
+1. 開啟後端以及 MongoDB，確認資料庫有順利連上線，並且後端有在 `localhost:4000` 運作。
+2. 開啟前端 `yarn start`，確保前端有在 `localhost:3000` 運作。
     
 ## Push your code to Github
 1. Run `git add .`

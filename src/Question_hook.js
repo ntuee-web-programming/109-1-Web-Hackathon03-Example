@@ -7,11 +7,11 @@ const instance = axios.create({
 })
 
 function Question() {
-  const [complete, setComplete] = useState(false)
-  const [contents, setContents] = useState([])
-  const [ans, setAns] = useState([])
-  const [score, setScore] = useState(0)
-  const [current_question, setCurrentQuestion] = useState(0)
+  const [complete, setComplete] = useState(false)  // true if answered all questions
+  const [contents, setContents] = useState([])     // to store questions
+  const [ans, setAns] = useState([])               // to record your answers
+  const [score, setScore] = useState(0)            // Your score
+  const [current_question, setCurrentQuestion] = useState(0) // index to current question
 
   const next = async () => {
     if (current_question === (contents.length - 1)) {
