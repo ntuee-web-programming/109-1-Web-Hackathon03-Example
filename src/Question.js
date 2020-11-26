@@ -10,11 +10,11 @@ class Question extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      complete: false,
-      contents: [],
-      ans: [],
-      score: 0,
-      current_question: 0
+      complete: false,    // true if answered all questions
+      contents: [],       // to store questions
+      ans: [],            // to record your answers
+      score: 0,           // Your score
+      current_question: 0 // index to current question
     }
   }
 
