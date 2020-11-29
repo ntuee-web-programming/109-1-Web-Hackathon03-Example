@@ -9,7 +9,7 @@
    
 3. 把 repo clone 到電腦本地端，打開 terminal / cmd, 執行 `git clone https://github.com/<Your Username>/109-1-Web-Hackathon03.git`
 
-4. 為避免大家在考試的當下同時 install 造成網路塞車，請先下載 [package.json](https://drive.google.com/file/d/1z_xm1WhudFH0uxCIm0YrRvMhSnUB8XPn/view?usp=sharing)，然後放到你剛剛 clone 的 repo 裡面
+4. 為避免大家在考試的當下同時 install 造成網路塞車，請先下載 [package.json](https://drive.google.com/drive/folders/13oFbEnnlNwSfE6dWigRku1sbGIA7-KTN?usp=sharing)，然後放到你剛剛 clone 的 repo 裡面
 
 5. 打開 terminal / cmd，執行以下動作：
     * `cd 109-1-Web-Hackathon03`
