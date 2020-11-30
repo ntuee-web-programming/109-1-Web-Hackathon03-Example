@@ -31,7 +31,8 @@
 
 10. URL 請填入 `https://github.com/ntuee-webprogramming/109-1-Web-Hackathon03`，然後點擊 Begin Import
 > 若持續出現錯誤以致無法 import，有可能是網路塞車，請稍後再試。
-> 若真的還是不行，請直接下載題目的 zip 檔，解壓縮後將所有檔案放進你的 repo 資料夾，並且確認 .gitignore 有在 repo 資料夾裡面 (如果沒有，可輸入指令：進入題目的資料夾後 `mv .gitignore ../109-1-Web-Hackathon03`)
+> 若真的還是不行，請直接下載題目的 zip 檔 (https://drive.google.com/drive/folders/13oFbEnnlNwSfE6dWigRku1sbGIA7-KTN?usp=sharing)
+> 解壓縮後將所有檔案放進你的 repo 資料夾，並且確認 .gitignore 有在 repo 資料夾裡面 (如果沒有，可輸入指令：進入題目的資料夾後 `mv .gitignore ../109-1-Web-Hackathon03`)
     
 11. 打開 terminal / cmd 執行 `cd 109-1-Web-Hackathon03`
 12. 執行 `git pull`
@@ -143,10 +144,6 @@
 6. 答題結束後，將分數回傳至前端並顯示 (20%)
 
     * 請將後端回傳的分數顯示在 `<div id="question-title"></div>` 裡面，假設四題對了三題，則應該顯示：Your Score : 3 / 4 (顯示位置為蓋掉原本最後一題的題目內容，同時也請隱藏 `<div id="options"></div>` 以及 `<div id="actions">NEXT</div>`
-
-## Running Tests
-1. 開啟後端 `yarn server`，確認資料庫有順利連上線，並且後端有在 `localhost:4000` 運作。
-2. 開啟前端 `yarn start`，確保前端有在 `localhost:3000` 運作。
     
 ## Push your code to Github
 1. Run `git add .`
