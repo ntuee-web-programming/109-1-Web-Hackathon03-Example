@@ -102,11 +102,11 @@
 
     (3) 請在 `<div id="question-title"></div>` 內填入該題目的內容
 
-    (4) 請在 `<div id="options"></div>` 加入該題目的選項
-        如果該題目有四個選項，則應該要有 4 個 `<div className="each-option"></div>`
-        每個 each-option 裡面應該要包含一個 `<input type="radio" />` 及一個 `<span></span>`
-        每個 radio input 的 id 命名須遵照以下規則：如果是第一題的第四個選項，請命名為 `q1_4`
-        請在 span 裡填入該選項的文字內容
+    (4) 請在 `<div id="options"></div>` 加入該題目的選項  
+        如果該題目有四個選項，則應該要有 4 個 `<div className="each-option"></div>`  
+        每個 each-option 裡面應該要包含一個 `<input type="radio" />` 及一個 `<span></span>`  
+        每個 radio input 的 id 命名須遵照以下規則：如果是第一題的第四個選項，請命名為 `q1_4`  
+        請在 span 裡填入該選項的文字內容  
     * 這邊提供同學們可能會需要用到的寫法：
         ```javascript=
           <input
@@ -125,7 +125,7 @@
     * 請實作 src/Question.js (or src/Question_hook.js) 裡的 next()，當按下 NEXT 按鈕的時候切換至下一題
 
 5. 記錄所選答案、傳到後端並算分 (20%)
-
+    **按下選項這個動作，可以自行決定要針對 input 按或是對parent div 按，這兩種寫法都可以接受**
     * 每次選擇選項後請記錄起來，例如選擇了第三個選項，請記錄 3 這個數字，記得不要寫成 "3" 或是 2 (index)
     * 請將全部所選答案放進一個 array，例：[1, 2, 3, 4] (如果總共四題)
     * 請稍微修改 next()，在最後一題按下 NEXT 的時候，會呼叫 axios post，並將所記錄的答案傳至後端算分
@@ -143,7 +143,8 @@
 
 6. 答題結束後，將分數回傳至前端並顯示 (20%)
 
-    * 請將後端回傳的分數顯示在 `<div id="question-title"></div>` 裡面，假設四題對了三題，則應該顯示：Your Score : 3 / 4 (顯示位置為蓋掉原本最後一題的題目內容，同時也請隱藏 `<div id="options"></div>` 以及 `<div id="actions">NEXT</div>`
+    * 請將後端回傳的分數顯示在 `<div id="question-title"></div>` 裡面，假設四題對了三題，則應該顯示：Your Score : 3 / 4 (直接蓋掉原本最後一題的題目內容)
+    * 同時隱藏 `<div id="options"></div>` 以及 `<div id="actions">NEXT</div>`，隱藏方法為把它們變成 `<div></div>`
     
 ## Push your code to Github
 1. Run `git add .`
